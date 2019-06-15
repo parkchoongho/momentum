@@ -6,11 +6,14 @@ function getTime() {
   const hours = date.getHours(),
     minutes = date.getMinutes(),
     seconds = date.getSeconds();
-  clockTitle.innerText = `현재 시각: ${hours}시 ${minutes}분 ${seconds}초`;
+  clockTitle.innerText = `${hours < 10 ? `0${hours}` : hours} : ${
+    minutes < 10 ? `0${minutes}` : minutes
+  } : ${seconds < 10 ? `0${seconds}` : seconds}`;
 }
 
 function init() {
   getTime();
+  setInterval(getTime, 1000);
 }
 
 init();
